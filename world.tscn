@@ -569,7 +569,7 @@ format = 1
 [node name="YSort" type="YSort" parent="."]
 
 [node name="player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 536, 136 )
+position = Vector2( 58, 89 )
 __meta__ = {
 "_edit_group_": true
 }
