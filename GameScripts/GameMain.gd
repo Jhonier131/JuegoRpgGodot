@@ -16,6 +16,7 @@ func _ready():
 #	GAME.add_child(mundo1)
 	
 func _verificar_nivel():
+	print(siguienteEscena)
 	match siguienteEscena:
 		"casa1":
 			nuevaEscena = casa1

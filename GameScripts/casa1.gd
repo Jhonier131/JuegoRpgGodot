@@ -21,5 +21,13 @@ func _ready():
 #		get_tree().get_nodes_in_group("game")[0].siguienteEscena = "casa1"
 #		get_tree().get_nodes_in_group("game")[0]._verificar_nivel()
 #		get_tree().get_nodes_in_group("mundo")[0].queue_free()
-		
-		
+
+
+func _on_pueblo_area_entered(area):
+	pass # Replace with function body.
+#	print("holaaa")
+#	if area.is_in_group("player"):
+#		get_tree().get_nodes_in_group("gameMain")[0].siguienteEscena = "mundo1"
+#		get_tree().get_nodes_in_group("gameMain")[0].ubucacionSalir = Vector2(536,104)
+#		get_tree().get_nodes_in_group("gameMain")[0]._verificar_nivel()
+#		get_tree().get_nodes_in_group("gameMain")[0].queue_free()

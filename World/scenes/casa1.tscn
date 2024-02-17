@@ -627,7 +627,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 17, 6.5 )
 
-[node name="Casa1" type="Node2D"]
+[node name="Casa1" type="Node2D" groups=["casa"]]
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -661,3 +661,5 @@ position = Vector2( 144, 136 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pueblo"]
 position = Vector2( 144, 153.5 )
 shape = SubResource( 20 )
+
+[connection signal="area_entered" from="pueblo" to="." method="_on_pueblo_area_entered"]

@@ -14,6 +14,8 @@ enum {
 var state = MOVE
 var velocity = Vector2.ZERO
 var roll_vector = Vector2.DOWN
+var mover = true
+var objeto = false
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -25,6 +27,7 @@ func _ready():
 	swordHitbox.knockback_vector = roll_vector
 
 func _physics_process(delta):
+	print(state)
 	match state:
 		MOVE:
 			move_state(delta)
@@ -40,7 +43,13 @@ func move_state(delta):
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
-	
+	if mover == true:
+		if Input.is_action_just_pressed("estatuaMision"):
+			if objeto == true:
+				$Macro.visible = true
+				Main.dialogo()
+				$Macro/Control.ingresar_dialogo()
+				mover = false
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
 		swordHitbox.knockback_vector = input_vector
@@ -58,9 +67,21 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("Roll"):
 		state = ROLL
-	
+
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		
+	if Input.is_action_just_pressed("ui_left"):
+		$objetoEstatua/CollisionShape2D.rotation_degrees = 90
+
+	if Input.is_action_just_pressed("ui_right"):
+		$objetoEstatua/CollisionShape2D.rotation_degrees = 270
+
+	if Input.is_action_just_pressed("ui_up"):
+		$objetoEstatua/CollisionShape2D.rotation_degrees = 180
+
+	if Input.is_action_just_pressed("ui_down"):
+		$objetoEstatua/CollisionShape2D.rotation_degrees = 0
 
 func roll_state():
 	velocity = roll_vector * ROLL_SPEED
@@ -81,3 +102,15 @@ func roll_animation_finished():
 func attack_animation_finished():
 	state = MOVE
 
+
+
+func _on_objetoEstatua_area_entered(area):
+	$Macro/Control/Label.text = str(area.name)
+	if area.is_in_group("objeto"):
+		Main.nombre_objeto = area.name
+		objeto = true
+
+
+func _on_objetoEstatua_area_exited(area):
+	if area.is_in_group("objeto"):
+		objeto = false
