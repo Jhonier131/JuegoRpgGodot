@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fondo.ogg-b9400e33f13a2237fa71009c48035354.oggstr"
+
+[deps]
+
+source_file="res://Sonido/Fondo.ogg"
+dest_files=[ "res://.import/Fondo.ogg-b9400e33f13a2237fa71009c48035354.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
