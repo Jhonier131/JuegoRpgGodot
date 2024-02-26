@@ -1,0 +1,20 @@
+~ main
+
+if global.given_items == false
+	slime: [[hola|Que tal]]...como te puedo ayuder?
+	- Tienes algo para mi?
+		slime: Claro...necesito que busques mi espada.
+		Te dare una recompenza.
+		- Esta bien, lo hare.
+			if global.found_items == true
+				slime: Ya lo completaste.
+				global.given_items == true
+				=> END
+		- En otra ocaciom, adios. => END
+	- Adios. => END
+else:
+	slime: Gracias por encontrarlo.
+	slime: Voy a trabajar por una sorpresa para ti.
+	=> END
+	
+=> END

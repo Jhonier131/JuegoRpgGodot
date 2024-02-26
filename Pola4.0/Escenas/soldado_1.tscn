@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwkdexa87bsak"]
+
+[ext_resource type="Texture2D" uid="uid://b25t38pawg8vn" path="res://Sprites/Entidades/soldado1.png" id="1_75o4s"]
+
+[sub_resource type="GDScript" id="GDScript_xbqdc"]
+script/source = "extends CharacterBody2D
+
+func _physics_process(delta):
+	$AnimatedSprite2D.play(\"idle\")
+	$AnimatedSprite2D.flip_h = true
+	
+func soldado1():
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy4ch"]
+atlas = ExtResource("1_75o4s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhw7v"]
+atlas = ExtResource("1_75o4s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca6pk"]
+atlas = ExtResource("1_75o4s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw0et"]
+atlas = ExtResource("1_75o4s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1wxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy4ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhw7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca6pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw0et")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wk727"]
+radius = 25.02
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbl6x"]
+size = Vector2(17, 7)
+
+[node name="soldado1" type="CharacterBody2D"]
+platform_floor_layers = 4294967075
+script = SubResource("GDScript_xbqdc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_w1wxq")
+animation = &"idle"
+frame_progress = 0.374483
+
+[node name="deteccion" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="deteccion"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_wk727")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_xbl6x")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bm3dbxtqb7soy"]
+[gd_scene load_steps=23 format=3 uid="uid://bm3dbxtqb7soy"]
 
 [ext_resource type="Texture2D" uid="uid://18g71karp5xn" path="res://Sprites/Decoraciones terreno/GrassBackground.png" id="1_yxhuk"]
 [ext_resource type="Texture2D" uid="uid://ctvfw5ojmhvt4" path="res://Sprites/Decoraciones terreno/DirtTileset.png" id="2_erkkl"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3k8y5sp8odjb" path="res://Escenas/player_1.tscn" id="6_hy5km"]
 [ext_resource type="Texture2D" uid="uid://c8c7jehnju4ku" path="res://Sprites/Decoraciones terreno/Tree.png" id="6_wit03"]
 [ext_resource type="Texture2D" uid="uid://dsqm0sfhyqpcu" path="res://Sprites/Decoraciones terreno/TX Props.png" id="7_ojxd6"]
+[ext_resource type="PackedScene" uid="uid://bwkdexa87bsak" path="res://Escenas/soldado_1.tscn" id="10_rw5s8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5m46"]
 texture = ExtResource("1_yxhuk")
@@ -5400,3 +5401,9 @@ layer_0/tile_data = PackedInt32Array(63, 3, 24, 65599, 3, 25, 131135, 3, 26, 196
 
 [node name="Player1" parent="." instance=ExtResource("6_hy5km")]
 position = Vector2(132, 88)
+
+[node name="soldado1" parent="." instance=ExtResource("10_rw5s8")]
+position = Vector2(409, 134)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1152, 583)
