@@ -45,6 +45,7 @@ func _on_deteccion_body_entered(body):
 	if body.has_method("estatua1"):
 		rangoObj = true
 		global.tipoDialogo = "estatua1"
+		animacion.play("quieto")
 		DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main");
 		
 	if body.name == "cofre" and !global.misio1Completada:

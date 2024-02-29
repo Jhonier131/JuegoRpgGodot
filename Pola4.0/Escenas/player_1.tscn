@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b3k8y5sp8odjb"]
+[gd_scene load_steps=35 format=3 uid="uid://b3k8y5sp8odjb"]
 
 [ext_resource type="Script" path="res://script/CharacterBody2D.gd" id="1_2vr1a"]
 [ext_resource type="Texture2D" uid="uid://br0h7kx1bmci8" path="res://Sprites/Pola/MergedPola.png" id="1_271jc"]
@@ -85,6 +85,10 @@ region = Rect2(704, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljx0t"]
 atlas = ExtResource("1_271jc")
 region = Rect2(672, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wtr8"]
+atlas = ExtResource("1_271jc")
+region = Rect2(384, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr0hk"]
 atlas = ExtResource("1_271jc")
@@ -212,6 +216,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7wtr8")
+}],
+"loop": true,
+"name": &"quieto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sr0hk")
 }, {
 "duration": 1.0,
@@ -261,8 +273,8 @@ shape = SubResource("RectangleShape2D_ja3nw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_7ammb")
-animation = &"atkabajo"
-frame_progress = 0.312644
+animation = &"left"
+frame_progress = 0.327661
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3, 3)
