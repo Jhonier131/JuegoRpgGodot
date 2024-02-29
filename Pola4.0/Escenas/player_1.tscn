@@ -249,16 +249,17 @@ animations = [{
 radius = 18.0
 
 [node name="Player1" type="Node2D"]
+y_sort_enabled = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 3
 script = ExtResource("1_2vr1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.5, 11)
 shape = SubResource("RectangleShape2D_ja3nw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_7ammb")
 animation = &"atkabajo"
 frame_progress = 0.312644
@@ -270,10 +271,11 @@ limit_top = 0
 limit_right = 1152
 limit_bottom = 657
 
-[node name="deteccion" type="Area2D" parent="."]
+[node name="deteccion" type="Area2D" parent="CharacterBody2D" groups=["player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="deteccion"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/deteccion"]
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_rnlbt")
 
-[connection signal="body_entered" from="deteccion" to="CharacterBody2D" method="_on_deteccion_body_entered"]
-[connection signal="body_exited" from="deteccion" to="CharacterBody2D" method="_on_deteccion_body_exited"]
+[connection signal="body_entered" from="CharacterBody2D/deteccion" to="CharacterBody2D" method="_on_deteccion_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/deteccion" to="CharacterBody2D" method="_on_deteccion_body_exited"]

@@ -1,5 +1,5 @@
 extends Node
 
-var found_items = false
-var given_items = false
-
+var movimientoPersonaje = true;
+var tipoDialogo = "mundo"
+var misio1Completada = false;

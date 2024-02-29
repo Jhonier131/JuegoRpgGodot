@@ -1,20 +1,26 @@
 ~ main
-
-if global.given_items == false
-	slime: [[hola|Que tal]]...como te puedo ayuder?
-	- Tienes algo para mi?
-		slime: Claro...necesito que busques mi espada.
-		Te dare una recompenza.
-		- Esta bien, lo hare.
-			if global.found_items == true
-				slime: Ya lo completaste.
-				global.given_items == true
-				=> END
-		- En otra ocaciom, adios. => END
-	- Adios. => END
-else:
-	slime: Gracias por encontrarlo.
-	slime: Voy a trabajar por una sorpresa para ti.
-	=> END
+set global.movimientoPersonaje = false
+if global.tipoDialogo == "soldado1"
+	if global.misio1Completada == false:
+		Soldado: [[hola|Que tal]]...como te puedo ayuder?
+		- Tienes algo para mi?
+			Soldado: Claro...necesito que busques mi espada.[wait=1] Te dare una recompenza.
+			- Esta bien, lo hare.
+			set global.movimientoPersonaje = true
+			=> END
+			- En otra ocaciom, adios. 
+			set global.movimientoPersonaje = true
+			=> END
+		- Adios.
+		set global.movimientoPersonaje = true
+		=> END
+	else:
+		Soldado: Gracias por consegir mi espada.
+		set global.movimientoPersonaje = true
 	
+if global.tipoDialogo == 'estatua1' and !global.ocultarDialogoEstatua
+	Soldado: Parece que no has completado la mision del soldado...[wait=1] Vuelve cuando ya la hayas completado.
+	- Esta bien, volvere.
+		set global.movimientoPersonaje = true
+		=> END
 => END

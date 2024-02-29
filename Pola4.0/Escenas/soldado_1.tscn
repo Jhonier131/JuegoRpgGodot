@@ -49,32 +49,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wk727"]
-radius = 25.02
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbl6x"]
 size = Vector2(17, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wk727"]
+radius = 25.02
 
 [node name="soldado1" type="CharacterBody2D"]
 platform_floor_layers = 4294967075
 script = SubResource("GDScript_xbqdc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_w1wxq")
 animation = &"idle"
 frame_progress = 0.374483
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+y_sort_enabled = true
+shape = SubResource("RectangleShape2D_xbl6x")
+
 [node name="deteccion" type="Area2D" parent="."]
+z_index = -1
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deteccion"]
-position = Vector2(0, -9)
+y_sort_enabled = true
 shape = SubResource("CircleShape2D_wk727")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_xbl6x")

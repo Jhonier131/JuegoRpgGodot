@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6mvgpqicmp2f"]
+
+[ext_resource type="Texture2D" uid="uid://dsqm0sfhyqpcu" path="res://Sprites/Decoraciones terreno/TX Props.png" id="1_mo5kq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ximfe"]
+size = Vector2(33, 17)
+
+[node name="cofre" type="StaticBody2D" groups=["cofre1"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mo5kq")
+offset = Vector2(-2, -24)
+hframes = 7
+vframes = 7
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_ximfe")
+debug_color = Color(1.68458e-06, 0.433607, 0.508203, 0.42)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ygjh7l6q7iy"]
+
+[ext_resource type="Script" path="res://script/estatua_1.gd" id="1_42a5k"]
+[ext_resource type="Texture2D" uid="uid://dsqm0sfhyqpcu" path="res://Sprites/Decoraciones terreno/TX Props.png" id="1_uq8oc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bw1c"]
+size = Vector2(21, 34)
+
+[node name="estatua_1" type="StaticBody2D"]
+script = ExtResource("1_42a5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uq8oc")
+offset = Vector2(6, -30)
+hframes = 6
+vframes = 5
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_6bw1c")
