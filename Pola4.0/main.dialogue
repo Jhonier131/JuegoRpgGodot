@@ -23,4 +23,14 @@ if global.tipoDialogo == 'estatua1' and !global.ocultarDialogoEstatua
 	- Esta bien, volvere.
 		set global.movimientoPersonaje = true
 		=> END
+if global.tipoDialogo == 'lapida':
+	Quiz1: Cuando murio Policarpa?
+	- Cartagena el 13 de noviembre de 1820.
+		Quiz1: Has fallado vuelve a intentarlo mas tarde.
+	- cali el 14 de diciembre de 1817.
+		Quiz1: Esta no es la respuesta.
+	- Bogotá el 14 de noviembre de 1817.
+		set global.puntaje_quiz1 = 1
+		Quiz1: Has contestado correctamente. [wait=0.5]Has ganado 1 punto.
+	
 => END

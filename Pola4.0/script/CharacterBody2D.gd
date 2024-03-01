@@ -7,11 +7,11 @@ const velocidad = 150.0
 var rangoObj = false
 
 func _physics_process(_delta):
-	
+
 	#print(global.movimientoPersonaje)
 	#print(global.tipoDialogo)
 	player_move(_delta)
-	
+
 	if rangoObj:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main");
