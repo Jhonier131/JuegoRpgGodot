@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6mvgpqicmp2f"]
+
+[ext_resource type="Texture2D" uid="uid://dsqm0sfhyqpcu" path="res://Sprites/Decoraciones terreno/TX Props.png" id="1_ftu07"]
+[ext_resource type="Texture2D" uid="uid://f5e3f6us5ney" path="res://Sprites/Decoraciones terreno/weapon_knight_sword.png" id="2_kdxch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ximfe"]
+size = Vector2(10, 5)
+
+[node name="espada" type="StaticBody2D" groups=["espada"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ftu07")
+offset = Vector2(-2, -24)
+hframes = 7
+vframes = 7
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_ximfe")
+debug_color = Color(1.68458e-06, 0.433607, 0.508203, 0.42)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+rotation = -3.14159
+texture = ExtResource("2_kdxch")
+offset = Vector2(0, 12)
+vframes = 2
+frame = 1

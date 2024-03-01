@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bnddplrle23xx"
+path="res://.godot/imported/faltaMision.dialogue-2968c1551ce2c9d2785924fcc0421ade.tres"
+
+[deps]
+
+source_file="res://script/dialogos/faltaMision.dialogue"
+dest_files=["res://.godot/imported/faltaMision.dialogue-2968c1551ce2c9d2785924fcc0421ade.tres"]
+
+[params]
+
+defaults=true

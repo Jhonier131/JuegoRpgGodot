@@ -1,0 +1,14 @@
+~ mision1
+if !global.mision1Activa:
+	=> END
+if global.mision1Activa:
+	set global.movimientoPersonaje = false
+	Espada: Has encontrado una espada.
+	- Sacar.
+		set global.movimientoPersonaje = true
+		set global.misio1Completada = true
+		do global._ocultar_espada()
+	- Rendirse.
+		set global.movimientoPersonaje = true
+=> END
+

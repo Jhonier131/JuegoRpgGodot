@@ -9,7 +9,6 @@ var rangoObj = false
 func _physics_process(_delta):
 
 	#print(global.movimientoPersonaje)
-	#print(global.tipoDialogo)
 	player_move(_delta)
 
 	if rangoObj:
@@ -41,15 +40,16 @@ func _on_deteccion_body_entered(body):
 	if body.has_method("soldado1"):
 		rangoObj = true
 		global.tipoDialogo = "soldado1"
-		
+
 	if body.has_method("estatua1"):
 		rangoObj = true
 		global.tipoDialogo = "estatua1"
 		animacion.play("quieto")
 		DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main");
 		
-	if body.name == "cofre" and !global.misio1Completada:
-		global.misio1Completada = true
+	if body.name == "espada" and !global.misio1Completada:
+		print(body.name)
+		DialogueManager.show_example_dialogue_balloon(load("res://script/dialogos/faltaMision.dialogue"), "mision1");
 
 func _on_deteccion_body_exited(body):
 	rangoObj = false

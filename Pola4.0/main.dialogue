@@ -2,35 +2,46 @@
 set global.movimientoPersonaje = false
 if global.tipoDialogo == "soldado1"
 	if global.misio1Completada == false:
-		Soldado: [[hola|Que tal]]...como te puedo ayuder?
-		- Tienes algo para mi?
-			Soldado: Claro...necesito que busques mi espada.[wait=1] Te dare una recompenza.
+		Soldado: [[hola|Que tal]]...como te puedo ayudar?
+		- Dame una mision.
+			Soldado: Ayudame a recuperar mi espada.[wait=0.2] Se atoro en una piedra y no puedo sacarla...
+			Si lo logras te dare una recompenza.
 			- Esta bien, lo hare.
 			set global.movimientoPersonaje = true
+			set global.mision1Activa = true
 			=> END
 			- En otra ocaciom, adios. 
 			set global.movimientoPersonaje = true
 			=> END
-		- Adios.
+		- Ahora no, adios.
 		set global.movimientoPersonaje = true
 		=> END
 	else:
 		Soldado: Gracias por consegir mi espada.
 		set global.movimientoPersonaje = true
+		set global.puntaje_quiz1 += 1
 	
-if global.tipoDialogo == 'estatua1' and !global.ocultarDialogoEstatua
-	Soldado: Parece que no has completado la mision del soldado...[wait=1] Vuelve cuando ya la hayas completado.
-	- Esta bien, volvere.
+if global.tipoDialogo == 'estatua1':
+	Estatua: Policarpa murio en Bogotá el 14 de noviembre de 1817.
+	- Lo recordare. Gracias.
 		set global.movimientoPersonaje = true
 		=> END
-if global.tipoDialogo == 'lapida':
+
+if global.tipoDialogo == 'lapidaQuiz':
 	Quiz1: Cuando murio Policarpa?
 	- Cartagena el 13 de noviembre de 1820.
 		Quiz1: Has fallado vuelve a intentarlo mas tarde.
+		set global.movimientoPersonaje = true
+		=> END
 	- cali el 14 de diciembre de 1817.
 		Quiz1: Esta no es la respuesta.
+		set global.movimientoPersonaje = true
+		=> END
 	- Bogotá el 14 de noviembre de 1817.
-		set global.puntaje_quiz1 = 1
+		set global.puntaje_quiz1 += 1
+		set global.movimientoPersonaje = true
+		set global.misio2Completada = true
 		Quiz1: Has contestado correctamente. [wait=0.5]Has ganado 1 punto.
+		=> END
 	
 => END
